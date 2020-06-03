@@ -1,2 +1,2 @@
 # angular-template
-Simple Angular template to be used as boi
+Angular Simple template to be used as start point for web applications 
