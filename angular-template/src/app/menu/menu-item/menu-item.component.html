@@ -1,0 +1,21 @@
+<div *ngIf="!!item.children && item.children.length > 0; then group else itemTemplate"></div>
+
+<ng-template #itemTemplate>
+    <a mat-list-item mat-ripple routerLink="{{item.route}}" routerLinkActive="active" [ngStyle]="{'padding-left': (depth * 12) + 'px'}">
+        <mat-icon>{{item.icon}}</mat-icon><span> {{item.name}}</span>
+    </a>
+</ng-template>
+
+<ng-template #group>
+    <a mat-list-item mat-ripple (click)="toogle()" [ngStyle]="{'padding-left': (depth * 12) + 'px'}">
+        <mat-icon>{{item.icon}}</mat-icon>
+        <span> {{item.name}}</span>
+        <span fxFlex>
+            <span fxFlex></span>
+            <mat-icon [@indicatorRotate]="expanded ? 'expanded': 'collapsed'">expand_more</mat-icon>
+        </span>
+    </a>
+    <mat-nav-list [@openClose]="expanded" *ngIf="expanded">
+        <app-menu-item *ngFor="let child of item.children" [item]="child" [depth]="depth+1"></app-menu-item>
+    </mat-nav-list>
+</ng-template>

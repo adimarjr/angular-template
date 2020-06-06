@@ -1,0 +1,24 @@
+@import "~@angular/material/theming";
+
+:host {
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    width: 100%;
+    min-width: 200px;
+
+    .mat-list-item.active {
+        font-weight: 600;
+        background-color: mat-color($mat-grey, 200);
+    }
+    &:hover,
+    &:focus {
+        > .mat-list-item:not(.expanded) {
+            background-color: mat-color($mat-grey, 300) !important;
+        }
+    }
+    .mat-list-item span {
+        margin-left: 10px;
+    }
+}
+
