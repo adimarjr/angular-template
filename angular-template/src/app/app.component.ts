@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../environments/environment';
-import { MenuService } from './services/menu.service';
-import { MenuItem } from './menu/menuItem';
+import { MenuService } from './shared/services/menu.service';
+import { MenuItem } from './shared/components/menu/menuItem';
 
 @Component({
   selector: 'app-root',

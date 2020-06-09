@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MenuModule } from './menu/menu.module';
+import { MenuModule } from './shared/components/menu/menu.module';
 
 @NgModule({
   declarations: [
