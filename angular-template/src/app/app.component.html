@@ -1,17 +1,1 @@
-<mat-toolbar color="primary" class="mat-elevation-z4">
-  <button mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>{{appName}}</span>
-</mat-toolbar>
-
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-    <app-menu [menuItems]="menuItems"></app-menu>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="content-wrapper">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content> 
-</mat-sidenav-container>
+<router-outlet></router-outlet>

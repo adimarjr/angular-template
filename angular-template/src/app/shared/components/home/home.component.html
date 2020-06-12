@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="mat-elevation-z4">
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{appName}}</span>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item routerLink="/profile">Profile</button>
+        <button mat-menu-item routerLink="/login">Logout</button>
+    </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+        <app-menu [menuItems]="menuItems"></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content-wrapper">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

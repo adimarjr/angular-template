@@ -10,17 +10,8 @@ import { MenuItem } from './shared/components/menu/menuItem';
 })
 export class AppComponent implements OnInit {
   title = 'Angular Simple Template';
-  opened: boolean = true;
-  appName: string;
-  menuItems: MenuItem[];
 
-  constructor(private menuService: MenuService) {
-    this.appName = environment.appName;
-  }
+  constructor() {}
 
-  ngOnInit() {
-    this.menuService.getMenuItems().subscribe(items =>
-      this.menuItems = items
-    ).unsubscribe();
-  }
+  ngOnInit() {}
 }

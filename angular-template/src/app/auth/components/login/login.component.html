@@ -1,0 +1,22 @@
+<div class="container" fxLayout fxLayoutAlign="center" fxFlexFill>
+    <div fxLayout="column" fxLayoutAlign="center">
+        <mat-card>
+            <form class="loginForm" fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="login(f)">
+                <h1>{{appName}}</h1>
+                <mat-form-field fxFlexFill>
+                    <input #emailInput="ngModel" matInput ngModel name="email" type="email" required email>
+                    <mat-error *ngIf="emailInput.hasError('required')">Required field</mat-error>
+                    <mat-error *ngIf="!emailInput.hasError('required')">Invalid e-mail</mat-error>
+                </mat-form-field>
+                <mat-form-field fxFlexFill>
+                    <input #passwordInput="ngModel" matInput type="password" ngModel name="password" required>
+                    <mat-error *ngIf="passwordInput.hasError('required')">Required field</mat-error>
+                </mat-form-field>
+                <div fxFlexFill>
+                    <mat-checkbox color="primary">Remember me</mat-checkbox>
+                </div>
+                <button mat-raised-button type="submit" color="primary" [disabled]="f.invalid">Login</button>
+            </form>
+        </mat-card>
+    </div>
+</div>

@@ -14,7 +14,7 @@ export class MenuService {
       { name: 'Home', route: '/', icon: 'home' },
       { name: 'Account', route: 'account', icon: 'supervisor_account' },
       { name: 'Items', icon: 'dvr', children: [
-        { name: 'Items', route: 'items' },
+        { name: 'Items', route: 'item' },
         { name: 'Categorias', route: 'categorias', icon: 'label', children: [
           { name: 'Sub-Categorias', route: 'subcategorias', icon: 'adb' }
         ] }
