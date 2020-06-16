@@ -1,0 +1,24 @@
+<app-auth-container>
+    <form class="registrationForm" fxLayout="column" fxLayoutAlign="center center" [formGroup]="form" (ngSubmit)="save()">
+        <h1>Welcome</h1>
+        <p class="mat-small">Create your account</p>
+        
+        <mat-form-field fxFlexFill>
+            <input formControlName="fullName" placeholder="Full name" matInput name="fullName" type="text" required>
+            <mat-error *ngIf="form.controls.fullName.hasError('required')">Required field</mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlexFill>
+            <input formControlName="email" placeholder="Email" matInput name="email" type="email" required>
+            <mat-hint *ngIf="form.controls.email.pending" align="end">Checking...</mat-hint>
+            <mat-error *ngIf="form.controls.email.errors?.required">Required field</mat-error>
+            <mat-error *ngIf="form.controls.email.errors?.emailRegistered">Email already in use</mat-error>
+            <mat-error *ngIf="!form.controls.email.errors?.required && !form.controls.email.errors?.emailRegistered">Invalid e-mail</mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlexFill>
+            <input formControlName="password" placeholder="Password" matInput type="password" name="password" required>
+            <mat-error *ngIf="form.controls.password.hasError('required')">Required field</mat-error>
+        </mat-form-field>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid">Register</button>
+        <p class="mat-small"><span>Already registered? </span> <a routerLink="/login" >Sign in</a></p>
+    </form>
+</app-auth-container>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,12 +11,16 @@ import { MenuModule } from './shared/components/menu/menu.module';
 import { MaterialModule } from './shared/modules/material.module';
 import { LoginComponent } from './auth/components/login/login.component';
 import { HomeComponent } from './shared/components/home/home.component';
+import { AuthContainerComponent } from './auth/components/auth-container/auth-container.component';
+import { RegistrationComponent } from './auth/components/registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AuthContainerComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +28,7 @@ import { HomeComponent } from './shared/components/home/home.component';
     BrowserAnimationsModule,
     FormsModule,
     FlexLayoutModule,
+    ReactiveFormsModule,
 
     MaterialModule,
     MenuModule
