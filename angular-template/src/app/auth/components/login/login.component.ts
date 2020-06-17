@@ -3,8 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
-import { UserService } from '../../services/user.service';
 import { ToasterService } from 'src/app/shared/services/toaster.service';
+import { AutheticationService } from '../../services/authetication.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router, 
     private toaster: ToasterService,
-    private userService: UserService) { }
+    private authService: AutheticationService) { }
 
   ngOnInit(): void {
     this.appName = environment.appName;
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   login(loginForm: NgForm){
     console.log(loginForm);
     if(loginForm.valid) {
-      this.userService.login(loginForm.value.email, loginForm.value.password)
+      this.authService.login(loginForm.value.email, loginForm.value.password, loginForm.value.remember)
       .subscribe(result => result ? this.router.navigate(['/']) : this.toaster.success('Invalid e-mail/password') 
       );
     }

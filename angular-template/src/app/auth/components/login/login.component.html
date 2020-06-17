@@ -11,7 +11,7 @@
             <mat-error *ngIf="passwordInput.hasError('required')">Required field</mat-error>
         </mat-form-field>
         <div fxFlexFill>
-            <mat-checkbox color="primary">Remember me</mat-checkbox>
+            <mat-checkbox color="primary" #remember="ngModel" ngModel name="remember">Remember me</mat-checkbox>
         </div>
         <button mat-raised-button type="submit" color="primary" [disabled]="!f.valid">Login</button>
         <p class="mat-small">Are you a new user? <a routerLink="/register" >Register</a></p>
