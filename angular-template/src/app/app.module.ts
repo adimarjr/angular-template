@@ -13,6 +13,7 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { HomeComponent } from './shared/components/home/home.component';
 import { AuthContainerComponent } from './auth/components/auth-container/auth-container.component';
 import { RegistrationComponent } from './auth/components/registration/registration.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RegistrationComponent } from './auth/components/registration/registrati
     ReactiveFormsModule,
 
     MaterialModule,
-    MenuModule
+    MenuModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

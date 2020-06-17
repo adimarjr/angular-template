@@ -4,6 +4,7 @@ import { HomeComponent } from './shared/components/home/home.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegistrationComponent } from './auth/components/registration/registration.component';
 import { AuthGuard } from './shared/guards/auth-guard';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   ]},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegistrationComponent},
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
