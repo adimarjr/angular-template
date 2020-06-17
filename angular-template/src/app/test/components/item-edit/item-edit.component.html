@@ -1,0 +1,15 @@
+<app-container title='Edit Item'>
+    <form [formGroup]="form" fxLayout="column" fxLayoutGap="10px">
+        <mat-form-field>
+            <input matInput formControlName="name" type="text" placeholder="Name">
+            <mat-error *ngIf="form.controls.name.errors?.required">Required field</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput formControlName="description" placeholder="Description" rows="2"></textarea>
+        </mat-form-field>
+        <div fxLayout fxLayoutGap="10px">
+            <button (click)="save()" [disabled]="!form.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon> Save</button>
+            <a mat-raised-button routerLink='/item'>Cancel</a>
+        </div>
+    </form>
+</app-container>
