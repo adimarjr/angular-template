@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../menu/menuItem';
 import { MenuService } from '../../services/menu.service';
 import { environment } from 'src/environments/environment';
+import { MsalService } from '@azure/msal-angular';
+import { AutheticationService } from 'src/app/auth/services/authetication.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,7 @@ export class HomeComponent implements OnInit {
   appName: string;
   menuItems: MenuItem[];
 
-  constructor(private menuService: MenuService) {
+  constructor(private menuService: MenuService, private authService: AutheticationService) {
     this.appName = environment.appName;
   }
 
@@ -23,4 +25,7 @@ export class HomeComponent implements OnInit {
     ).unsubscribe();
   }
 
+  logout() {
+    this.authService.logout();
+  }
 }

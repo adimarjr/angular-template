@@ -12,14 +12,14 @@ export class MenuService {
   getMenuItems(): Observable<MenuItem[]> {
     return of([
       { name: 'Home', route: '/', icon: 'home' },
-      { name: 'Account', route: 'account', icon: 'supervisor_account' },
+      // { name: 'Account', route: 'account', icon: 'supervisor_account' },
       { name: 'Items', icon: 'dvr', children: [
         { name: 'Items', route: 'item' },
         { name: 'Categorias', route: 'categorias', icon: 'label', children: [
           { name: 'Sub-Categorias', route: 'subcategorias', icon: 'adb' }
         ] }
       ]},
-      { name: 'Devices', route: 'devices', icon: 'devices' },
+      // { name: 'Devices', route: 'devices', icon: 'devices' },
     ]);
   }
 }

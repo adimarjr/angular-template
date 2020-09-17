@@ -15,6 +15,9 @@ import { AuthContainerComponent } from './auth/components/auth-container/auth-co
 import { RegistrationComponent } from './auth/components/registration/registration.component';
 import { SharedModule } from './shared/shared.module';
 
+import { MsalModule } from '@azure/msal-angular';
+
+const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +37,28 @@ import { SharedModule } from './shared/shared.module';
     MaterialModule,
     MenuModule,
     SharedModule,
+    MsalModule.forRoot({
+      auth: {
+          clientId: "bbd03772-6678-4b2e-9cad-e003bfa6a302",
+          redirectUri: "http://localhost:4200"
+      },
+      cache: {
+        cacheLocation: 'localStorage',
+        storeAuthStateInCookie: isIE, // Set to true for Internet Explorer 11
+      },
+    }, {
+      popUp: !isIE,
+      consentScopes: [
+        'user.read',
+        'openid',
+        'profile',
+      ],
+      unprotectedResources: [],
+      protectedResourceMap: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      ],
+      extraQueryParameters: {}
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

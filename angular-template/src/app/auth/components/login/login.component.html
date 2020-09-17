@@ -15,5 +15,7 @@
         </div>
         <button mat-raised-button type="submit" color="primary" [disabled]="!f.valid">Login</button>
         <p class="mat-small">Are you a new user? <a routerLink="/register" >Register</a></p>
+        <p class="mat-small">Or use Microsoft Account</p>
+        <button mat-raised-button type="button" color="accent" (click)="azureLogin()">Microsoft Login</button>
     </form>
 </app-auth-container>
